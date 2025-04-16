@@ -16,4 +16,4 @@ change the directory as you want.
 
 # This program is a demo for a larger project called Techky.
 
-[Bro](https://github.com/Sho2007/Techky/blob/main/MyLittleBrother.png)
+![Bro](https://github.com/Sho2007/Techky/blob/main/MyLittleBrother.png)
