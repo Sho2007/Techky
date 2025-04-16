@@ -24,16 +24,20 @@ def capture_window(hwnd, resize=(200, 120)):
             return None
 
         left, top = win32gui.ClientToScreen(hwnd, (left, top))
+
         hwndDC = win32gui.GetWindowDC(hwnd)
         mfcDC = win32ui.CreateDCFromHandle(hwndDC)
         saveDC = mfcDC.CreateCompatibleDC()
+
         saveBitMap = win32ui.CreateBitmap()
         saveBitMap.CreateCompatibleBitmap(mfcDC, width, height)
         saveDC.SelectObject(saveBitMap)
+
         saveDC.BitBlt((0, 0), (width, height), mfcDC, (0, 0), win32con.SRCCOPY)
 
         bmpinfo = saveBitMap.GetInfo()
         bmpstr = saveBitMap.GetBitmapBits(True)
+        
         img = np.frombuffer(bmpstr, dtype='uint8')
         img.shape = (bmpinfo['bmHeight'], bmpinfo['bmWidth'], 4)
         img = cv2.cvtColor(img, cv2.COLOR_BGRA2RGB)
@@ -57,8 +61,8 @@ def create_code_file(filename="main.bat"):
     for path in PathFolder:
         CodeBat += f'\nstart "" "{path}"'
         
-    with open(filename, 'w', encoding='utf-8') as f:
-        f.write(CodeBat)
+    with open(filename, 'w', encoding='utf-8') as file:
+        file.write(CodeBat)
 
     create_shortcut(
     target_path=r"C:\\Users\\WINDOWS\\Desktop\\Techky\\main.bat",
