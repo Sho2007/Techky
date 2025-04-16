@@ -14,4 +14,4 @@ icon_path=r"C:\\Users\\WINDOWS\\Downloads\\Screenshot-2025-04-15-133810.ico"
 
 change the directory as you want.
 
-#*** This program is a demo for a larger project called Techky. ***
+# This program is a demo for a larger project called Techky.
